@@ -1,6 +1,8 @@
 const coordenadas = document.getElementById("coordenadas");
 const latitude = document.getElementById("latitude");
 const longitude = document.getElementById("longitude");
+const altitude = document.getElementById("altitude");
+const velocidade = document.getElementById("velocidade");
 var primeiraVez = true;
 
 var map = L.map('mapId').setView([0, 0], 15);
@@ -17,7 +19,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-const url = "http://api.open-notify.org/iss-now.json";
+const url = "https://api.wheretheiss.at/v1/satellites/25544";
 
 function buscarDados() {
 
@@ -25,19 +27,21 @@ function buscarDados() {
     .then(resposta => resposta.json())
     .then(dados => {
 
-        latitude.textContent = dados.iss_position.latitude;
-        longitude.textContent = dados.iss_position.longitude;
+        latitude.textContent = dados.latitude.toFixed(5);
+        longitude.textContent = dados.longitude.toFixed(5);
+        altitude.textContent = parseInt(dados.altitude);
+        velocidade.textContent = parseInt(dados.velocity);
 
-        marker.setLatLng([dados.iss_position.latitude, dados.iss_position.longitude]);
+        marker.setLatLng([dados.latitude, dados.longitude]);
 
-        if (primeiraVez) {
-            map.setView([dados.iss_position.latitude, dados.iss_position.longitude], 3);
+        if (primeiraVez) { // se for a primeira vez que a função foi chamada, definir o zoom para 3
+            map.setView([dados.latitude, dados.longitude], 3);
             primeiraVez = false;
 
             return;
         }
         
-        map.setView([dados.iss_position.latitude, dados.iss_position.longitude]);
+        map.setView([dados.latitude, dados.longitude]);
 
     })
 }
