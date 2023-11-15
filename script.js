@@ -44,8 +44,14 @@ function buscarDados() {
 
         /*marker.setLatLng([dados.latitude, dados.longitude]);*/
 
+        if (primeiraVez) { // se for a primeira vez que a função foi chamada, definir o zoom para 2
+            earth.setView([dados.latitude, dados.longitude], 2);
+            primeiraVez = false;
+
+            return;
+        }
         
-        earth.setView([dados.latitude, dados.longitude], 1.7);
+        earth.setView([dados.latitude, dados.longitude]);
 
     })
 }
