@@ -58,21 +58,21 @@
         <div class="row gx-2 justify-content-center">
             <div class="col-6">
                 <p class="text-white m-0" id="coordenadas">
-                    Altitude: <span id="altitude"></span>m
-                    Velocidade: <span id="velocidade"></span> km/h
+                    Altitude: <span id="altitude"></span>
+                    Velocidade: <span id="velocidade"></span>
                 </p>
             </div>
             <div class="col-1"></div>
             <div class="col-2 d-flex justify-content-end">
-                <span class="form-check-label text-white" for="switchUnidade">Metros</span>
+                <span class="form-check-label text-white" for="switchUnidade">Métrico</span>
             </div>
             <div class="col-1">
                 <div class="form-check form-switch d-flex justify-content-center">
-                    <input class="form-check-input" type="checkbox" role="switch" id="switchUnidade">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchUnidade" onchange="alternarUnidade()">
                 </div>
             </div>
             <div class="col-2">
-                <span class="form-check-label text-white" for="switchUnidade">Milhas</span>
+                <span class="form-check-label text-white" for="switchUnidade">Imperial</span>
             </div>
             
         </div>
