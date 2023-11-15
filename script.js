@@ -22,10 +22,10 @@ function buscarDados() {
         latitude.textContent = dados.latitude.toFixed(5);
         longitude.textContent = dados.longitude.toFixed(5);
         if (switchUnidade.checked) {
-            altitude.textContent = Math.round(dados.altitude / 3.281)  + "ft";
+            altitude.textContent = Math.round(dados.altitude / 1.609)  + "mi";
             velocidade.textContent = Math.round(dados.velocity / 1.609)  + " mph";
         } else {
-            altitude.textContent = Math.round(dados.altitude) + "m";
+            altitude.textContent = Math.round(dados.altitude) + "km";
             velocidade.textContent = Math.round(dados.velocity) + " km/h";
         }
         
@@ -49,11 +49,10 @@ function buscarDados() {
 function alternarUnidade() {
 
     if (switchUnidade.checked) {
-        
-        altitude.textContent = Math.round(parseInt(altitude.textContent) / 3.281) + "ft";
+        altitude.textContent = Math.round(parseInt(altitude.textContent) / 1.609) + "mi";
         velocidade.textContent = Math.round(parseInt(velocidade.textContent) / 1.609) + " mph";
     } else {
-        altitude.textContent = Math.round(parseInt(altitude.textContent) * 3.281) + "m";
+        altitude.textContent = Math.round(parseInt(altitude.textContent) * 1.609) + "km";
         velocidade.textContent = Math.round(parseInt(velocidade.textContent) * 1.609) + " km/h";
     }
 
