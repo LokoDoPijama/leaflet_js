@@ -21,15 +21,25 @@
             background-image: url("./background.avif");
         }
 
+        #mapId {
+            pointer-events: none;
+        }
+
+        img {
+            width: 85px;
+        }
+
     </style>
 </head>
-<body onload="initialize()">
+<body>
     <div class="border border-3 rounded-pill w-25 mx-auto m-3 bg-black">
         <h1 class="text-center text-white my-3">ISS Posição Atual</h1>
     </div>
 
     <div class="w-50 mx-auto border border-5 mt-4 px-3 pt-3 bg-black" style="--bs-bg-opacity: .5;">
-        <div class="mx-auto w-100" id="mapId" style="height: 400px;"></div>
+        <div class="mx-auto w-100" id="mapId" style="height: 450px;">
+            <img class="position-absolute start-50 top-50 translate-middle" src="./ISS.png">
+        </div>
         <p class="text-white m-1" id="coordenadas">
             Latitudade: <span id="latitude"></span>°
             Longitude: <span id="longitude"></span>°

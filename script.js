@@ -6,12 +6,12 @@ const velocidade = document.getElementById("velocidade");
 var primeiraVez = true;
 
 
-function initialize() {
-    var earth = new WE.map('mapId');
-    WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(earth);
-}
+
+var earth = new WE.map('mapId');
+WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution: '© OpenStreetMap contributors'
+}).addTo(earth);
+
 
 
 
@@ -42,16 +42,10 @@ function buscarDados() {
         altitude.textContent = parseInt(dados.altitude);
         velocidade.textContent = parseInt(dados.velocity);
 
-        marker.setLatLng([dados.latitude, dados.longitude]);
+        /*marker.setLatLng([dados.latitude, dados.longitude]);*/
 
-        if (primeiraVez) { // se for a primeira vez que a função foi chamada, definir o zoom para 3
-            map.setView([dados.latitude, dados.longitude], 3);
-            primeiraVez = false;
-
-            return;
-        }
         
-        map.setView([dados.latitude, dados.longitude]);
+        earth.setView([dados.latitude, dados.longitude], 1.7);
 
     })
 }
