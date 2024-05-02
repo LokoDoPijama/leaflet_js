@@ -1,3 +1,6 @@
+const mapId = document.getElementById("mapId");
+const divErro = document.getElementById("divErro");
+const issImg = document.getElementById("issImg");
 const coordenadas = document.getElementById("coordenadas");
 const latitude = document.getElementById("latitude");
 const longitude = document.getElementById("longitude");
@@ -6,10 +9,20 @@ const velocidade = document.getElementById("velocidade");
 const switchUnidade = document.getElementById("switchUnidade");
 var primeiraVez = true;
 
-var earth = new WE.map('mapId');
-WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    attribution: '© OpenStreetMap contributors'
-}).addTo(earth);
+
+try {
+    var earth = new WE.map('mapId');
+
+    WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(earth);
+
+} catch {
+    divErro.classList.remove("d-none");
+    issImg.classList.add("d-none");
+}
+
+
 
 const url = "https://api.wheretheiss.at/v1/satellites/25544";
 
@@ -44,6 +57,7 @@ function buscarDados() {
         earth.setView([dados.latitude, dados.longitude]);
 
     })
+    .catch(error => console.error(`Error fetching data: ${error.message}`));
 }
 
 function alternarUnidade() {

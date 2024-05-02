@@ -19,7 +19,7 @@
         }
 
         body {
-            background-image: url("./background.avif");
+            background-image: url("Imagens/background.avif");
         }
 
         #mapId {
@@ -28,6 +28,10 @@
 
         img {
             width: 85px;
+        }
+
+        #oops {
+            font-size: 5em;
         }
 
 
@@ -40,7 +44,14 @@
 
     <div class="w-50 mx-auto border border-5 mt-4 px-3 pt-3 bg-black" style="--bs-bg-opacity: .5;">
         <div class="mx-auto w-100" id="mapId" style="height: 450px;">
-            <img class="position-absolute start-50 top-50 translate-middle" src="./ISS.png">
+            <img id="issImg" class="position-absolute start-50 top-50 translate-middle" src="Imagens/ISS.png">
+            <div id="divErro" class="d-none">
+                <h1 id="oops" class="text-center">Oops!</h1>
+                <h1 class="text-center">Ocorreu um erro ao renderizar o globo.</h1>
+                <h5 class="text-center">
+                    Obs: Para a renderização do globo, o seu navegador deve estar com a configuração de "aceleração gráfica" ativada.
+                </h5>
+            </div>
         </div>
         <div class="row gx-2">
             <div class="col-6">
