@@ -1,7 +1,6 @@
 const mapId = document.getElementById("mapId");
 const divErro = document.getElementById("divErro");
 const issImg = document.getElementById("issImg");
-const coordenadas = document.getElementById("coordenadas");
 const latitude = document.getElementById("latitude");
 const longitude = document.getElementById("longitude");
 const altitude = document.getElementById("altitude");
